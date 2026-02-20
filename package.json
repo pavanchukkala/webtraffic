@@ -1,7 +1,7 @@
 {
   "name": "webtraffic",
   "productName": "WebTraffic Bot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Google Traffic Bot - Simulate real organic SEO traffic with proxies",
   "main": "index.js",
   "scripts": {
@@ -21,14 +21,8 @@
   "build": {
     "appId": "com.pavanchukkala.webtraffic",
     "productName": "WebTraffic Bot",
-    "win": {
-      "target": "nsis"
-    },
-    "mac": {
-      "target": "dmg"
-    },
-    "linux": {
-      "target": ["AppImage", "deb"]
-    }
+    "win": { "target": "nsis" },
+    "mac": { "target": "dmg" },
+    "linux": { "target": ["AppImage", "deb"] }
   }
 }
