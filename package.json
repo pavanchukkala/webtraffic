@@ -1,12 +1,13 @@
 {
   "name": "webtraffic",
+  "productName": "WebTraffic Bot",
   "version": "1.0.0",
-  "description": "Google Traffic Bot - Simulate organic SEO traffic with proxies",
+  "description": "Google Traffic Bot - Simulate real SEO traffic with proxies",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
     "dist": "electron-builder",
-    "build": "electron-builder --win --linux --mac"
+    "build": "electron-builder --win --mac --linux"
   },
   "author": "pavanchukkala",
   "license": "MIT",
@@ -15,7 +16,26 @@
     "selenium-webdriver": "^4.10.0"
   },
   "devDependencies": {
-    "electron": "^26.0.0",
+    "electron": "^28.0.0",
     "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.pavanchukkala.webtraffic",
+    "productName": "WebTraffic Bot",
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": ["nsis"],
+      "icon": "assets/icon.ico"
+    },
+    "mac": {
+      "target": ["dmg"],
+      "icon": "assets/icon.icns"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "icon": "assets/icon.png"
+    }
   }
 }
