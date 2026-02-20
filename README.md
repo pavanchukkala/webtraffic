@@ -1,65 +1,34 @@
-# 🚦 Google Traffic Bot
+# 🚦 WebTraffic Bot
 
-Google Traffic Bot is a simple JavaScript tool designed to improve Google SEO by simulating organic traffic. Built with Electron for a user-friendly interface and Selenium for web automation.
+**WebTraffic Bot** is a powerful desktop application that simulates real organic traffic to any website. Built with Electron + Selenium, it helps with SEO testing by generating visits from different locations using proxies.
 
 ---
 
 ## ✨ Features
-
-- 🚗 **Automated Traffic Simulation:** Generate traffic to any website by simulating multiple visitors.
-- 🎯 **Behavior Customization:** Define how bots interact with the site, including scrolling and clicking.
-- 🌐 **Proxy Support:** Rotate through proxy servers to simulate traffic from different locations.
-- 🕵️‍♂️ **Stealth Capabilities:** Include stealth settings to mimic human-like browsing and avoid bot detection mechanisms.
+- 🚗 **3 Traffic Modes**: Direct, Google Search + Click, Proxy Rotation
+- 🌐 **Proxy Support**: Drop your proxy list in `/proxy/` folder (one per line)
+- 🕵️‍♂️ **Stealth Mode**: Hides automation flags to look more human
+- 📈 **Auto Scroll & Interaction**: Realistic page behavior
+- 🎨 **Simple GUI**: Easy to use interface with Start/Stop buttons
 
 ---
 
 ## 🛠️ Tech Stack
-
-- **JavaScript**: Core scripting language for traffic simulation.
-- **Node.js**: JavaScript runtime for executing the application.
-- **Electron**: Framework for building the cross-platform desktop application.
-- **Selenium**: Library for automating web browser interactions.
-- **ChromeDriver**: WebDriver for controlling Chrome in Selenium.
+- **Electron** — Cross-platform desktop app
+- **Selenium + ChromeDriver** — Browser automation
+- **Node.js** — Backend logic
+- **jQuery** — UI interactions
 
 ---
 
-## 🚨 Prerequisites
-
-### 🖥️ Requires a Display
-> ⚠️ **Note:** This application requires a display to run and **cannot run headless** for now.
-
-### 🛑 Node.js 16 or Higher
-Ensure Node.js 16 or higher is installed:
-
-- **Windows**: Install Node.js using [Chocolatey](https://chocolatey.org/):
-  ```bash
-  choco install nodejs-lts
-  ```
-
-- **Ubuntu**: Install Node.js using the following commands:
-  ```bash
-  sudo apt update
-  sudo apt install -y curl
-  curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-  sudo apt install -y nodejs
-  ```
-
-### 🌟 ChromeDriver Installation
-Install the version of ChromeDriver matching your Chrome browser version. For Chrome version `131`, use:
-```bash
-npm install chromedriver@131.0.0
-```
-
----
-
-## Installation (Desktop App)
+## 📦 Installation
 
 ### Option A: Download Ready-to-Use App (Recommended)
-1. Go to [Releases](https://github.com/pavanchukkala/webtraffic/releases)
-2. Download the file for your OS:
-   - Windows → `WebTraffic Bot Setup 1.0.0.exe`
-   - Mac → `WebTraffic Bot-1.0.0.dmg`
-   - Linux → `webtraffic_1.0.0.AppImage`
+1. Go to **[Releases](https://github.com/pavanchukkala/webtraffic/releases)**
+2. Download the file for your operating system:
+   - **Windows** → `WebTraffic Bot Setup 1.0.0.exe`
+   - **Mac** → `WebTraffic Bot-1.0.0.dmg`
+   - **Linux** → `webtraffic_1.0.0.AppImage`
 
 ### Option B: Run from Source
 ```bash
@@ -69,84 +38,32 @@ npm install
 mkdir -p proxy
 npm start
 
-6. Scroll to the bottom of the page → click the green button **Commit changes**
+🛑 Prerequisites
 
-7. In the small pop-up:
-   - Commit message: `Update README with easy desktop install instructions`
-   - Click **Commit changes**
+Node.js 16 or higher
+Google Chrome installed (version matching chromedriver 131)
+For Linux headless (optional): sudo apt install xvfb
 
-Done! ✅ Your README now looks professional and tells users exactly how to download the .exe etc.
 
----
+🛑 Disclaimer
+This tool is for educational and testing purposes only.
+Misuse on live websites may violate their Terms of Service. Use responsibly!
 
-### Now continue with Step 4 (still very easy)
+📃 License
+MIT License © pavanchukkala
 
-**Step 4: Add Automatic Build Workflow**
+Enjoy generating traffic! 🚀
+Made with ❤️ by pavanchukkala
+text---
 
-1. Go to your repo: https://github.com/pavanchukkala/webtraffic
+### Next Step (Quick)
+1. Go to your repo
+2. Click **"Add file" → "Create new file"**
+3. Name: `.github/workflows/release.yml`
+4. Paste the workflow code I gave earlier (the long YAML)
+5. Commit it
 
-2. Click **"Add file"** → **"Create new file"**
+After you update these two files + the workflow, just reply **“Done”** and I’ll tell you exactly how to create the release that builds your `.exe` automatically.
 
-3. In the file name box, type exactly this (including the slashes):  
-   `.github/workflows/release.yml`
-
-   (GitHub will automatically create the folders `.github` and `workflows`)
-
-4. Paste the entire workflow code I gave you earlier into the big empty box:
-
-```yaml
-name: Build & Release Desktop App
-
-on:
-  push:
-    tags:
-      - "v*"
-
-jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest]
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build app
-        run: npm run dist
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload artifacts
-        uses: softprops/action-gh-release@v2
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: |
-            dist/*.exe
-            dist/*.dmg
-            dist/*.AppImage
-            dist/*.deb
-
-## 🛑 Disclaimer
-
-**Google Traffic Bot** is provided for educational purposes only. 🚫 Misuse of this tool to violate any website's terms of service is not recommended or endorsed. Use responsibly!
-
----
-
-## 📃 License
-
-This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
-
----
-
-### 🎉 Enjoy using Google Traffic Bot! 🚀
+You’re literally 2 minutes away from having professional downloadable builds!  
+Copy → Paste → Commit. Let’s go! 🚀
