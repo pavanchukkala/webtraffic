@@ -56,7 +56,8 @@ npm install chromedriver@131.0.0
 
 1. **Clone the Project**:
    ```bash
-   git clone https://github.com/SoHeil-R/google-traffic-bot.git
+   git clone https://github.com/pavanchukkala/webtraffic.git
+cd webtraffic
    ```
 
 2. **Navigate to the Project Directory**:
