@@ -6,8 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder",
-    "build": "electron-builder --win --mac --linux"
+    "dist": "electron-builder"
   },
   "author": "pavanchukkala",
   "license": "MIT",
@@ -23,16 +22,13 @@
     "appId": "com.pavanchukkala.webtraffic",
     "productName": "WebTraffic Bot",
     "win": {
-      "target": ["nsis"],
-      "icon": "assets/icon.ico"
+      "target": "nsis"
     },
     "mac": {
-      "target": ["dmg"],
-      "icon": "assets/icon.icns"
+      "target": "dmg"
     },
     "linux": {
-      "target": ["AppImage", "deb"],
-      "icon": "assets/icon.png"
+      "target": ["AppImage", "deb"]
     }
   }
 }
